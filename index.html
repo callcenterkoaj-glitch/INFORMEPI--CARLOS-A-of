@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Informe General · Pasillo Infinito · Carlos Arroyo · Nacional 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#F7F8FA;--surface:#FFFFFF;--border:#E5E7EB;--border-strong:#D1D5DB;--text:#111827;--text-2:#374151;--text-3:#6B7280;--text-4:#9CA3AF;--primary:#1E40AF;--primary-dark:#1E3A8A;--primary-light:#3B82F6;--primary-soft:#EFF6FF;--accent:#0EA5E9;--success:#059669;--success-soft:#D1FAE5;--warning:#F59E0B;--warning-soft:#FEF3C7;--danger:#DC2626;--danger-soft:#FEE2E2;--gold:#B45309;--lime:#C5F542;--lime-dark:#A3D11C;--lime-soft:#F2FCD1;--lime-deep:#7BAA0F}
+html,body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.55;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+.container{max-width:1280px;margin:0 auto;padding:0 28px}
+a{color:inherit}
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 0}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.nav-brand{font-size:14px;font-weight:800;color:var(--primary-dark);letter-spacing:1.2px;text-transform:uppercase}
+.nav-brand span{color:var(--text-3);font-weight:500}
+.nav-links{display:flex;gap:6px;flex-wrap:wrap}
+.nav-links a{color:var(--text-2);text-decoration:none;font-size:12px;font-weight:600;letter-spacing:0.3px;padding:6px 12px;border-radius:6px;transition:all .15s}
+.nav-links a:hover{background:var(--primary-soft);color:var(--primary)}
+.hero{background:linear-gradient(140deg,#0F1E3A 0%,#1E3A8A 50%,#1E40AF 100%);color:white;padding:90px 0 130px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-12%;right:-8%;width:560px;height:560px;background:radial-gradient(circle,rgba(197,245,66,0.18) 0%,transparent 65%);border-radius:50%}
+.hero::after{content:'';position:absolute;bottom:-30%;left:-10%;width:480px;height:480px;background:radial-gradient(circle,rgba(59,130,246,0.18) 0%,transparent 65%);border-radius:50%}
+.hero-content{position:relative;z-index:2}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--lime);border:1px solid var(--lime);color:#0F1E3A;padding:7px 16px;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;border-radius:20px;margin-bottom:28px;box-shadow:0 4px 18px rgba(197,245,66,0.35)}
+.hero-eyebrow::before{content:'';width:8px;height:8px;background:#0F1E3A;border-radius:50%}
+.hero-title{font-size:clamp(56px,8vw,112px);font-weight:900;line-height:0.95;letter-spacing:-2.5px;margin-bottom:22px;text-transform:uppercase}
+.hero-title .accent{color:var(--lime);display:block;text-shadow:0 4px 24px rgba(197,245,66,0.35)}
+.hero-tagline{font-size:17px;color:rgba(255,255,255,0.92);max-width:640px;font-weight:400;line-height:1.6;font-style:italic;font-family:Georgia,serif;border-left:3px solid var(--lime);padding-left:18px}
+section{padding:64px 0}
+.section-eyebrow{display:inline-block;font-size:11px;font-weight:700;color:var(--primary);letter-spacing:1.8px;text-transform:uppercase;margin-bottom:12px}
+.section-title{font-size:clamp(28px,3vw,40px);font-weight:800;color:var(--text);letter-spacing:-0.5px;margin-bottom:8px;line-height:1.15}
+.section-title-mini{font-size:22px;font-weight:700;color:var(--text);letter-spacing:-0.3px;margin-bottom:6px}
+.section-lead{font-size:14px;color:var(--text-3);max-width:760px;margin-bottom:36px;font-weight:500;line-height:1.6}
+.section-lead-mini{font-size:13px;color:var(--text-3);margin-bottom:28px;line-height:1.55}
+.kpi-hero{margin-top:-80px;position:relative;z-index:10;padding:0!important}
+.kpi-hero-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:1100px){.kpi-hero-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.kpi-hero-grid{grid-template-columns:1fr}}
+.kpi-tile{background:white;border-radius:16px;padding:26px 24px;box-shadow:0 12px 36px rgba(15,30,58,0.12);border:1px solid rgba(255,255,255,0.5);transition:all .2s;position:relative;overflow:hidden}
+.kpi-tile::after{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:var(--primary)}
+.kpi-tile.lime::after{background:var(--lime)}
+.kpi-tile.gold::after{background:var(--gold)}
+.kpi-tile.success::after{background:var(--success)}
+.kpi-tile.danger::after{background:var(--danger)}
+.kpi-tile.danger .kpi-icon{background:var(--danger-soft);color:var(--danger)}
+.kpi-tile.danger .kpi-tile-value{color:var(--danger)}
+.kpi-tile:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(15,30,58,0.16)}
+.kpi-tile-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.kpi-icon{width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;background:var(--primary-soft);color:var(--primary);border-radius:12px;flex-shrink:0}
+.kpi-tile.lime .kpi-icon{background:var(--lime-soft);color:var(--lime-deep)}
+.kpi-tile.gold .kpi-icon{background:#FEF3C7;color:var(--gold)}
+.kpi-tile.success .kpi-icon{background:var(--success-soft);color:var(--success)}
+.kpi-icon svg{width:22px;height:22px}
+.kpi-tile-label{font-size:13px;font-weight:800;letter-spacing:0.2px;color:var(--text);line-height:1.2;text-transform:uppercase}
+.kpi-tile-value{font-size:30px;font-weight:900;color:var(--text);letter-spacing:-0.8px;line-height:1.05;margin-bottom:10px;word-break:break-word;font-variant-numeric:tabular-nums}
+.kpi-tile-reto{color:var(--text-4);font-weight:600;font-size:12px}
+.kpi-tile-reto b{color:var(--text-3);font-weight:700}
+.lp-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:900px){.lp-grid{grid-template-columns:1fr}}
+.lp-card{background:white;border-radius:14px;padding:28px;border:1px solid var(--border);position:relative;overflow:hidden}
+.lp-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--primary)}
+.lp-card.promo::before{background:var(--lime-dark)}
+.lp-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;padding-bottom:18px;border-bottom:1px solid var(--border)}
+.lp-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1.2px;padding:5px 11px;background:var(--primary);color:white;border-radius:4px;text-transform:uppercase}
+.lp-badge.promo{background:var(--lime);color:#0F1E3A}
+.lp-tiendas{font-size:12px;color:var(--text-3);font-weight:600}
+.lp-tiendas strong{color:var(--text);font-weight:800;font-size:14px}
+.lp-big-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:18px;margin-bottom:22px}
+.lp-big{text-align:left;min-width:0}
+.lp-big-label{font-size:10px;font-weight:700;color:var(--text-3);letter-spacing:0.8px;text-transform:uppercase;margin-bottom:8px}
+.lp-big-value{font-size:26px;font-weight:800;color:var(--text);line-height:1.05;letter-spacing:-0.6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lp-big-value.money{font-size:19px;letter-spacing:-0.4px}
+.lp-big-value.cumpl{color:var(--success)}
+.lp-mini{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding-top:24px;margin-top:8px;border-top:1px dashed var(--border)}
+.lp-mini-item{display:flex;flex-direction:column;gap:3px}
+.lp-mini-item .l{font-size:10px;color:var(--text-4);font-weight:700;letter-spacing:0.5px;text-transform:uppercase}
+.lp-mini-item .v{font-weight:700;color:var(--text-2);font-size:14px;font-variant-numeric:tabular-nums}
+.lp-mini-item.asterisk{text-align:right}
+.lp-mini-item.asterisk .l{color:var(--warning);font-size:9px}
+.lp-mini-item.asterisk .v{color:var(--warning)}
+.lp-footnote{padding:14px 16px;background:#FFFBEB;border-left:3px solid var(--warning);border-radius:6px;font-size:12px;color:var(--text-2);line-height:1.5}
+.lp-footnote strong{color:var(--warning)}
+.lp-toptoggle{margin-top:18px;border-top:1px solid var(--border);padding-top:14px}
+.lp-toptoggle-btn{width:100%;background:var(--bg);border:1px solid var(--border);padding:10px 14px;border-radius:8px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:12px;font-weight:700;color:var(--text);transition:all .2s;font-family:inherit}
+.lp-toptoggle-btn:hover{background:var(--primary-soft);border-color:var(--primary-light)}
+.lp-toptoggle-btn .chev{transition:transform .25s;font-size:10px}
+.lp-toptoggle.open .lp-toptoggle-btn .chev{transform:rotate(180deg)}
+.lp-toptoggle-list{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.lp-toptoggle.open .lp-toptoggle-list{max-height:600px;padding-top:10px}
+.lp-toptoggle-list ol{list-style:none}
+.lp-toptoggle-list li{display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center;padding:7px 6px;border-bottom:1px dashed var(--border);font-size:12px}
+.lp-toptoggle-list li:last-child{border-bottom:none}
+.lp-toptoggle-list .n{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;background:var(--primary);color:white;border-radius:5px;font-weight:700;font-size:10px}
+.lp-toptoggle.promo .lp-toptoggle-list .n{background:var(--lime-dark);color:#0F1E3A}
+.lp-toptoggle-list .nm{font-weight:600;color:var(--text);font-size:11.5px}
+.lp-toptoggle-list .v{font-variant-numeric:tabular-nums;font-weight:700;color:var(--text-2);font-size:11.5px}
+.hallazgo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.hallazgo{background:white;border-radius:12px;padding:22px;border:1px solid var(--border);position:relative;overflow:hidden;cursor:pointer;transition:all .25s}
+.hallazgo::before{content:'';position:absolute;top:0;left:0;height:100%;width:3px;background:var(--primary)}
+.hallazgo.positivo::before{background:var(--success)}
+.hallazgo.alerta::before{background:var(--warning)}
+.hallazgo.reto::before{background:var(--gold)}
+.hallazgo:hover{border-color:var(--primary-light);box-shadow:0 10px 30px rgba(30,64,175,0.10);transform:translateY(-2px)}
+.hallazgo .h-tag{display:inline-flex;align-items:center;gap:6px;font-size:9px;font-weight:700;letter-spacing:1px;color:var(--primary);padding:4px 10px;border-radius:4px;background:var(--primary-soft);margin-bottom:14px;text-transform:uppercase}
+.hallazgo.positivo .h-tag{color:var(--success);background:var(--success-soft)}
+.hallazgo.alerta .h-tag{color:var(--warning);background:var(--warning-soft)}
+.hallazgo.reto .h-tag{color:var(--gold);background:#FEF3C7}
+.hallazgo .h-title{font-weight:700;font-size:15px;color:var(--text);line-height:1.35;margin-bottom:8px}
+.hallazgo .h-detail{font-size:13px;color:var(--text-3);line-height:1.6;max-height:0;overflow:hidden;transition:max-height .35s ease,margin .25s,opacity .3s;opacity:0}
+.hallazgo:hover .h-detail{max-height:600px;opacity:1;margin-top:12px}
+.hallazgo .h-hint{font-size:10px;color:var(--text-4);font-weight:600;margin-top:10px;display:inline-flex;align-items:center;gap:6px;text-transform:uppercase;letter-spacing:0.6px;transition:opacity .25s}
+.hallazgo .h-hint::before{content:'+';color:var(--primary);font-weight:800}
+.hallazgo:hover .h-hint{opacity:0}
+.hallazgo[data-click="true"] .h-hint::before{content:'→';color:var(--warning)}
+.hallazgo[data-click="true"] .h-hint{color:var(--warning)}
+.hallazgo.expanded{border-color:var(--warning)}
+.hallazgo.expanded .h-detail{max-height:1200px;opacity:1;margin-top:12px}
+.tiendas-list{display:none;margin-top:10px;padding-top:8px;border-top:1px solid var(--border)}
+.hallazgo.expanded .tiendas-list{display:block}
+.tienda-item{display:grid;grid-template-columns:1fr 65px 55px;gap:8px;align-items:center;padding:5px 4px;border-bottom:1px solid var(--border);font-size:10.5px}
+.tienda-item:last-child{border-bottom:none}
+.ti-name{font-weight:600;color:var(--text);font-size:10.5px}
+.ti-meta{font-size:10px;color:var(--text-3);font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
+.ti-share{color:var(--danger);font-weight:800;text-align:right;font-variant-numeric:tabular-nums;font-size:10.5px}
+.formula-grid{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:14px;padding:14px;background:#FEF3C7;border-radius:10px;border:1px dashed var(--gold)}
+.formula-step{flex:1;min-width:120px;background:white;border-radius:8px;padding:12px 10px;display:flex;flex-direction:column;align-items:center;gap:4px;position:relative;border:1px solid var(--border)}
+.formula-step.lime{background:var(--lime-soft);border-color:var(--lime-dark)}
+.fs-num{position:absolute;top:-9px;left:-9px;background:var(--gold);color:white;font-weight:800;font-size:10px;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.fs-lbl{font-size:9.5px;font-weight:800;color:var(--text-3);letter-spacing:0.5px;text-transform:uppercase}
+.fs-val{font-size:18px;font-weight:900;color:var(--text);letter-spacing:-0.4px;line-height:1}
+.fs-sub{font-size:10px;color:var(--text-4);font-weight:500;text-align:center;line-height:1.3}
+.formula-op{font-size:22px;font-weight:900;color:var(--gold)}
+.lideres-list{display:flex;flex-direction:column;gap:6px}
+.lider-row{background:white;border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:all .2s}
+.lider-row:first-child{background:#F3F4F6;border-color:var(--primary)}
+.lider-row:first-child .lider-head{background:#E5E7EB}
+.lider-row:first-child .lider-rank{background:var(--lime-deep)}
+.lider-row:hover{border-color:var(--primary-light)}
+.lider-row.open{border-color:var(--primary);box-shadow:0 8px 24px rgba(30,64,175,0.10)}
+.lider-head{display:grid;grid-template-columns:32px 1.6fr 70px 1.2fr 80px 80px 80px 24px;gap:14px;align-items:center;padding:14px 18px;cursor:pointer}
+.lider-head:hover{background:var(--bg)}
+.lider-row.open .lider-head{background:var(--primary-soft);border-bottom:1px solid var(--border)}
+.lider-rank{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--primary);color:white;border-radius:6px;font-weight:700;font-size:11px}
+.lider-name{font-weight:700;color:var(--text);font-size:13px}
+.lider-cell{font-weight:600;font-variant-numeric:tabular-nums;text-align:center;font-size:12.5px;color:var(--text-2)}
+.lider-cell.tiendas{color:var(--primary);font-weight:800;background:var(--primary-soft);border-radius:4px;padding:3px 6px}
+.lider-cell.pct{color:var(--success);font-weight:700}
+.lider-chev{font-size:12px;color:var(--text-3);transition:transform .25s;text-align:right}
+.lider-row.open .lider-chev{transform:rotate(180deg);color:var(--primary)}
+.lider-detail{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.lider-row.open .lider-detail{max-height:800px}
+.lider-detail-inner{padding:20px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;background:var(--bg)}
+@media(max-width:1100px){.lider-detail-inner{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.lider-detail-inner{grid-template-columns:1fr}}
+.lider-hallazgo{background:white;border-radius:10px;padding:16px;border:1px solid var(--border);position:relative;cursor:pointer;transition:all .2s}
+.lider-hallazgo::before{content:'';position:absolute;left:0;top:0;width:3px;height:100%;background:var(--primary)}
+.lider-hallazgo.top::before{background:var(--success)}
+.lider-hallazgo.subir::before{background:var(--lime-dark)}
+.lider-hallazgo.oport::before{background:var(--warning)}
+.lider-hallazgo.bajar::before{background:var(--danger)}
+.lider-hallazgo:hover{box-shadow:0 6px 14px rgba(15,30,58,0.08)}
+.lh-head{display:flex;align-items:flex-start;gap:10px}
+.lh-icon{width:32px;height:32px;background:var(--primary-soft);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--primary);flex-shrink:0}
+.lider-hallazgo.top .lh-icon{background:var(--success-soft);color:var(--success)}
+.lider-hallazgo.subir .lh-icon{background:var(--lime-soft);color:var(--lime-deep)}
+.lider-hallazgo.oport .lh-icon{background:var(--warning-soft);color:var(--warning)}
+.lider-hallazgo.bajar .lh-icon{background:var(--danger-soft);color:var(--danger)}
+.lh-content{flex:1}
+.lh-tag{font-size:9px;font-weight:700;letter-spacing:1px;color:var(--text-4);text-transform:uppercase;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
+.lh-tag .chev-mini{color:var(--text-3);transition:transform .25s;font-size:10px}
+.lider-hallazgo.expanded .lh-tag .chev-mini{transform:rotate(180deg)}
+.lh-title{font-size:13px;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:6px}
+.lh-detail{font-size:11.5px;color:var(--text-3);line-height:1.5}
+.lh-stores{margin-top:0;max-height:0;overflow:hidden;transition:max-height .35s ease,margin .25s;list-style:none;font-size:11px}
+.lider-hallazgo.expanded .lh-stores{max-height:500px;margin-top:10px}
+.lh-stores li{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-top:1px dashed var(--border);gap:8px}
+.lh-stores li .nm{font-weight:600;color:var(--text-2);font-size:10.5px}
+.lh-stores li .v{font-variant-numeric:tabular-nums;font-weight:700;color:var(--text-3);font-size:10.5px;text-align:center;white-space:nowrap;min-width:130px}
+.lider-hallazgo.oport .lh-stores li .v{color:var(--danger);font-weight:800}
+.lh-stores li .v.up{color:var(--success)}
+.lh-stores li .v.down{color:var(--danger)}
+.mov-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:6px}
+@media(max-width:780px){.mov-row{grid-template-columns:1fr}}
+.mov-col{background:white;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.mov-head{display:flex;justify-content:space-between;align-items:center;padding:11px 14px;font-size:12px;font-weight:700;color:white}
+.mov-head.up{background:var(--success)}
+.mov-head.down{background:var(--danger)}
+.mov-badge{background:rgba(255,255,255,0.22);padding:3px 8px;border-radius:4px;font-size:11px;font-weight:800;font-variant-numeric:tabular-nums}
+.table-card{background:white;border-radius:12px;overflow:hidden;border:1px solid var(--border);margin-bottom:14px}
+table.exec{width:100%;border-collapse:collapse;font-size:13px}
+table.exec thead th{background:var(--bg);text-align:center;padding:11px 18px;font-size:10px;font-weight:700;letter-spacing:0.8px;color:var(--text-3);border-bottom:1px solid var(--border);text-transform:uppercase}
+table.exec thead th:nth-child(2){text-align:left}
+table.exec tbody td{padding:11px 18px;border-bottom:1px solid var(--border);vertical-align:middle;text-align:center}
+table.exec tbody td:nth-child(2){text-align:left}
+table.exec tbody tr:last-child td{border-bottom:none}
+table.exec tbody tr:hover{background:var(--primary-soft)}
+table.exec.compact thead th{padding:9px 14px;font-size:9.5px}
+table.exec.compact tbody td{padding:9px 14px;font-size:12.5px}
+table.exec.tight thead th{padding:7px 9px;font-size:9px}
+table.exec.tight tbody td{padding:7px 9px;font-size:11px}
+.cell-name{font-weight:600;color:var(--text)}
+.cell-num{font-weight:600;font-variant-numeric:tabular-nums;text-align:center;color:var(--text-2)}
+.cell-pct{font-weight:700;text-align:center}
+.cell-pct.up{color:var(--success)}
+.cell-pct.down{color:var(--danger)}
+.cell-vpi-red{font-weight:800;color:var(--danger);font-variant-numeric:tabular-nums;text-align:center}
+.rank{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:var(--primary);color:white;border-radius:6px;font-weight:700;font-size:11px}
+table.exec.compact .rank{width:22px;height:22px;font-size:10px}
+.arr{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;font-weight:800;font-size:11px}
+.arr.up{background:var(--success-soft);color:var(--success)}
+.arr.down{background:var(--danger-soft);color:var(--danger)}
+.chart-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:900px){.chart-row{grid-template-columns:1fr}}
+.chart-card{background:white;border-radius:12px;padding:22px;border:1px solid var(--border)}
+.chart-card-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px}
+.chart-card-sub{font-size:12px;color:var(--text-3);margin-bottom:18px}
+.chart-wrap{position:relative;height:260px}
+.block-h{font-size:13px;font-weight:700;color:var(--text);margin-bottom:12px;letter-spacing:0.2px}
+.callout{font-size:12px;color:var(--text-3);margin-bottom:14px;font-weight:500;font-style:italic}
+.divider{height:1px;background:var(--border);margin:34px 0}
+.zonas-row{display:grid;grid-template-columns:1.4fr 1fr;gap:22px;margin-bottom:18px}
+@media(max-width:900px){.zonas-row{grid-template-columns:1fr}}
+.op-mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:900px){.op-mini-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.op-mini-grid{grid-template-columns:1fr}}
+.op-mini-card{background:white;border:1px solid var(--border);border-radius:10px;padding:14px;display:flex;gap:10px;align-items:flex-start;position:relative;overflow:hidden}
+.op-mini-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--primary)}
+.op-mini-card.green::before{background:var(--success)}
+.op-mini-card.yellow::before{background:var(--warning)}
+.op-mini-card.lime::before{background:var(--lime-dark)}
+.op-mini-icon{width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;background:var(--primary-soft);color:var(--primary);border-radius:8px;flex-shrink:0}
+.op-mini-icon svg{width:16px;height:16px}
+.op-mini-card.green .op-mini-icon{background:var(--success-soft);color:var(--success)}
+.op-mini-card.yellow .op-mini-icon{background:var(--warning-soft);color:var(--warning)}
+.op-mini-card.lime .op-mini-icon{background:var(--lime-soft);color:var(--lime-deep)}
+.op-mini-label{font-size:10px;font-weight:700;color:var(--text-3);letter-spacing:0.4px;text-transform:uppercase;margin-bottom:4px}
+.op-mini-value{font-size:20px;font-weight:800;color:var(--text);line-height:1.05;letter-spacing:-0.4px;margin-bottom:3px}
+.op-mini-sub{font-size:10.5px;color:var(--text-4);font-weight:500}
+.cat-section-title{font-size:24px;font-weight:800;color:var(--text);letter-spacing:-0.4px;margin-bottom:6px;border-top:3px solid var(--lime);display:inline-block;padding-top:14px}
+.cat-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}
+@media(max-width:600px){.cat-summary{grid-template-columns:1fr}}
+.cat-sum-tile{background:white;border:1px solid var(--border);border-radius:10px;padding:12px 16px;position:relative;overflow:hidden}
+.cat-sum-tile::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--lime)}
+.cat-sum-tile:nth-child(2)::before{background:var(--primary)}
+.cat-sum-tile:nth-child(3)::before{background:var(--gold)}
+.cat-sum-lbl{font-size:10px;font-weight:800;letter-spacing:0.6px;text-transform:uppercase;color:var(--text-3);margin-bottom:6px}
+.cat-sum-val{font-size:18px;font-weight:900;color:var(--text);letter-spacing:-0.4px;font-variant-numeric:tabular-nums}
+.cat-toggle{display:inline-flex;gap:4px;background:var(--bg);padding:4px;border-radius:10px;border:1px solid var(--border);margin-bottom:14px}
+.cat-tab{background:transparent;border:none;padding:9px 18px;font-size:12px;font-weight:700;color:var(--text-3);border-radius:7px;cursor:pointer;font-family:inherit;transition:all .15s}
+.cat-tab.active{background:white;color:var(--text);box-shadow:0 2px 6px rgba(15,30,58,0.08)}
+.cat-bars{display:flex;flex-direction:column;gap:4px;margin-bottom:24px}
+.cat-bar-head{display:grid;grid-template-columns:170px 1fr 90px 130px 30px;gap:14px;align-items:center;padding:9px 14px;background:var(--text);color:white;border-radius:8px;font-size:10px;font-weight:800;letter-spacing:0.6px;text-transform:uppercase;margin-bottom:4px}
+.cat-bar-row{display:grid;grid-template-columns:170px 1fr 90px 130px 30px;gap:14px;align-items:center;padding:12px 14px;background:white;border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .15s}
+.cat-bar-row:hover{border-color:var(--primary-light);background:var(--primary-soft)}
+.cat-bar-name{font-size:12px;font-weight:700;color:var(--text);letter-spacing:0.3px;text-transform:uppercase}
+.cat-bar-track-wrap{display:flex;flex-direction:column;gap:4px}
+.cat-bar-pct{font-size:12px;font-weight:800;color:var(--gold);font-variant-numeric:tabular-nums;text-align:left}
+.cat-bar-track{height:8px;background:#F3F4F6;border-radius:4px;overflow:hidden;position:relative}
+.cat-bar-fill-h{height:100%;background:linear-gradient(90deg,#F59E0B,#FBBF24);border-radius:4px;transition:width .6s ease}
+.cat-bar-uds{font-size:13px;font-weight:800;color:var(--lime-deep);font-variant-numeric:tabular-nums;text-align:right}
+.cat-bar-val{font-size:13px;font-weight:700;color:var(--text-2);font-variant-numeric:tabular-nums;text-align:right}
+.cat-bar-chev{text-align:center;color:var(--text-3);font-size:11px;transition:transform .25s}
+.cat-bar-row.open .cat-bar-chev{transform:rotate(180deg);color:var(--primary)}
+.cat-refs{grid-column:1/-1;max-height:0;overflow:hidden;transition:max-height .4s ease}
+.cat-bar-row.open .cat-refs{max-height:600px;margin-top:10px}
+.cat-refs table{width:100%;border-collapse:collapse;background:var(--bg);border-radius:8px;overflow:hidden;font-size:11px;padding:8px}
+.cat-refs td{padding:10px 14px;border-bottom:1px dashed var(--border);vertical-align:middle;text-align:center}
+.cat-refs td:nth-child(2){text-align:left}
+.cat-refs tr:last-child td{border-bottom:none}
+.cat-refs .ref{font-family:monospace;font-weight:800;color:#0F1E3A;background:var(--lime);padding:4px 9px;border-radius:4px;font-size:10.5px;letter-spacing:0.3px;display:inline-block}
+.cat-refs .dsc{color:var(--text-2);font-weight:600}
+.cat-refs .u{font-variant-numeric:tabular-nums;font-weight:700;color:var(--lime-deep)}
+.cat-refs .v{font-variant-numeric:tabular-nums;font-weight:800;color:var(--text)}
+.cat-refs thead th{background:#0F1E3A;color:#fff;font-size:9.5px;font-weight:800;letter-spacing:0.6px;text-transform:uppercase;padding:9px 14px;text-align:center;border-bottom:none}
+.cat-refs thead th:nth-child(2){text-align:left}
+.cat-refs tr.otras td{background:#F9FAFB;color:#9CA3AF;font-weight:500;font-style:italic;opacity:.75}
+.cat-refs tr.otras .ref{background:transparent;color:#9CA3AF;border:1px dashed #D1D5DB;font-weight:600}
+.cat-refs tr.otras .dsc{color:#9CA3AF;font-weight:500}
+.cat-refs tr.otras .u,.cat-refs tr.otras .v{color:#9CA3AF;font-weight:600}
+.ref-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:6px}
+@media(max-width:1100px){.ref-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.ref-grid{grid-template-columns:repeat(2,1fr)}}
+.ref-card{background:white;border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;position:relative;box-shadow:0 2px 6px rgba(15,30,58,0.04)}
+.ref-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:var(--lime);z-index:2}
+.ref-rank{position:absolute;top:12px;left:12px;background:#0F1E3A;color:var(--lime);font-weight:800;font-size:12px;padding:4px 9px;border-radius:5px;z-index:3;letter-spacing:0.4px}
+.ref-gen{position:absolute;top:12px;right:12px;z-index:3;font-size:9px;font-weight:800;padding:4px 9px;border-radius:5px;letter-spacing:0.6px;text-transform:uppercase}
+.ref-gen.fem{background:#FCE7F3;color:#BE185D}
+.ref-gen.masc{background:#DBEAFE;color:#1E40AF}
+.ref-img{position:relative;aspect-ratio:3/4;background:linear-gradient(135deg,#F9FAFB 0%,#F3F4F6 100%);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--border);overflow:hidden;text-decoration:none;padding:8px}
+.ref-img img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block}
+.ref-body{padding:14px;display:flex;flex-direction:column;gap:12px;flex:1}
+.ref-code{font-size:12px;font-weight:900;color:#0F1E3A;background:var(--lime);padding:8px 10px;border-radius:7px;text-align:center;font-family:monospace;letter-spacing:0.5px;border:2px solid var(--lime-dark);box-shadow:0 2px 8px rgba(197,245,66,0.35)}
+.ref-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--bg)}
+.ref-stat{display:flex;flex-direction:column;gap:3px;padding:8px 6px;text-align:center;border-right:1px solid var(--border);background:white}
+.ref-stat:last-child{border-right:none}
+.ref-stat .lbl{font-size:8.5px;color:var(--text-4);font-weight:700;letter-spacing:0.4px;text-transform:uppercase}
+.ref-stat .val{font-size:11.5px;font-weight:800;color:var(--text);font-variant-numeric:tabular-nums;line-height:1.1}
+.footer{background:#0F1E3A;color:white;padding:32px 0;margin-top:60px}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.footer-brand{font-size:18px;font-weight:900;color:var(--lime);letter-spacing:1px;text-transform:uppercase}
+.footer-text{font-size:11px;color:rgba(255,255,255,0.7)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <div class="nav-brand">PASILLO INFINITO <span>· CARLOS ARROYO · NACIONAL 2026</span></div>
+    <div class="nav-links">
+      <a href="#kpis">Datos</a>
+      <a href="#hallazgos">Hallazgos</a>
+      <a href="#tipo">Sub tiendas</a>
+      <a href="#lideres">Líderes</a>
+      <a href="#top-tiendas">Top tiendas</a>
+      <a href="#evolucion">Evolución</a>
+      <a href="#productos">Zonas y Productos</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container hero-content">
+    <span class="hero-eyebrow">Informe General · Carlos Arroyo · Nacional · Cierre junio 2026</span>
+    <h1 class="hero-title">PASILLO<br/><span class="accent">INFINITO</span></h1>
+    <p class="hero-tagline">No vendemos solo lo que está en tienda. Con Pasillo Infinito vendemos lo que el cliente realmente quiere comprar.</p>
+  </div>
+</header>
+
+<section id="kpis" class="kpi-hero">
+  <div class="container">
+    <div class="kpi-hero-grid">
+      <div class="kpi-tile lime">
+        <div class="kpi-tile-head"><div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke-linecap="round"/></svg></div><div class="kpi-tile-label">Venta total 2026</div></div>
+        <div class="kpi-tile-value">$496.642.630</div>
+        <div class="kpi-tile-reto">Reto 6M: <b>$883.667.290</b> · cumpl 56.2%</div>
+      </div>
+      <div class="kpi-tile">
+        <div class="kpi-tile-head"><div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-2.3 2.3a1 1 0 0 0 .7 1.7h13.6M7 13L5.4 5M9 21a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm10 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z" stroke-linecap="round"/></svg></div><div class="kpi-tile-label">Pedidos totales</div></div>
+        <div class="kpi-tile-value">4.581</div>
+        <div class="kpi-tile-reto">Ticket prom.: <b>$108.414</b></div>
+      </div>
+      <div class="kpi-tile danger">
+        <div class="kpi-tile-head"><div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7L17 17M17 17H10M17 17V10" stroke-linecap="round"/></svg></div><div class="kpi-tile-label">Decrecimiento May vs Jun</div></div>
+        <div class="kpi-tile-value">-2.2%</div>
+        <div class="kpi-tile-reto">May → Jun: <b>$89.800.750 → $87.817.450</b></div>
+      </div>
+      <div class="kpi-tile gold">
+        <div class="kpi-tile-head"><div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 5L5 19M8 9.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm11 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" stroke-linecap="round"/></svg></div><div class="kpi-tile-label">% Vta. Física</div></div>
+        <div class="kpi-tile-value">0.70%</div>
+        <div class="kpi-tile-reto">Tiendas activas: <b>143</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hallazgos" style="padding-top:60px;">
+  <div class="container">
+    <span class="section-eyebrow">01 · Hallazgos clave</span>
+    <h2 class="section-title">Lo que el negocio dice</h2>
+    <p class="section-lead">Haz clic sobre cada hallazgo para conocer el detalle. En la sección de Oportunidad, podrás visualizar el listado de tiendas.</p>
+    <div class="hallazgo-grid">
+      <div class="hallazgo positivo">
+        <span class="h-tag">CRECIMIENTO</span>
+        <div class="h-title"><strong>PI cierra junio en $87.817.450</strong></div>
+        <div class="h-detail">
+          <p>El canal aportó <strong>$87.8M</strong> en Junio, con ticket promedio de <strong>$119.642</strong>.</p>
+          <p style="margin-top:10px;padding:10px 12px;background:#EFF6FF;border-left:3px solid var(--primary);border-radius:6px"><strong>Tip — un stop en el juego:</strong> hacemos un llamado a generar una validación que tus líderes y equipos dominen al 100% la herramienta. <em>Si quedan dudas, podemos agendar una sesión de refuerzo junto a los equipos.</em></p>
+        </div>
+        <div class="h-hint">Click para ver más</div>
+      </div>
+      <div class="hallazgo info">
+        <span class="h-tag">% VENTA FÍSICA</span>
+        <div class="h-title"><strong>PI representa 0.70% sobre la venta física ene–jun</strong></div>
+        <div class="h-detail">
+          <p>Comportamiento últimos 3 meses (PI sobre venta física):</p>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px">
+            <div style="text-align:center;background:var(--bg);padding:10px;border-radius:6px"><div style="font-size:10px;color:var(--text-3);font-weight:700">ABR</div><div style="font-size:15px;font-weight:800;color:var(--text)">0.77%</div></div>
+            <div style="text-align:center;background:var(--bg);padding:10px;border-radius:6px"><div style="font-size:10px;color:var(--text-3);font-weight:700">MAY</div><div style="font-size:15px;font-weight:800;color:var(--text)">0.83%</div></div>
+            <div style="text-align:center;background:#FEF2F2;padding:10px;border-radius:6px"><div style="font-size:10px;color:var(--danger);font-weight:700">JUN</div><div style="font-size:15px;font-weight:800;color:var(--danger)">0.65%</div></div>
+          </div>
+          <p style="margin-top:10px;padding:10px 12px;background:#FEF2F2;border-left:3px solid var(--danger);border-radius:6px"><strong>Alerta:</strong> caída en Junio vs Mayo. <strong>Reto:</strong> recuperar el 0.83% y llegar al 1% en el 2° semestre.</p>
+        </div>
+        <div class="h-hint">Click para ver más</div>
+      </div>
+      <div class="hallazgo alerta" data-click="true" data-tiendas='[{"a":"V95 KOAJ BASIC CHIQUINQUIRA","s":0.05,"p":6},{"a":"B55 KOAJ BASIC CAUCASIA","s":0.04,"p":4},{"a":"A85 KOAJ BASIC ARAUCA 3","s":0.00,"p":0},{"a":"V72 KOAJ BASIC TAME ZOMAC","s":0.00,"p":0},{"a":"D19 KOAJ BASIC ARAUCA 2","s":0.00,"p":0}]'>
+        <span class="h-tag">OPORTUNIDAD</span>
+        <div class="h-title"><strong>5 tiendas con venta física alta, pero baja participación de PI</strong></div>
+        <div class="h-detail">
+          <p>Son tiendas que tienen <strong>mayor oportunidad de brindarle una experiencia omnicanal al cliente</strong> por su alto tráfico. Con el apoyo y comunicación del líder podemos darle vuelta a ese dato.</p>
+          <p style="margin-top:8px">Haz clic para ver el listado y compartirlo con cada líder.</p>
+        </div>
+        <div class="h-hint">Click para ver tiendas</div>
+      </div>
+      <div class="hallazgo reto">
+        <span class="h-tag">NUESTRO RETO</span>
+        <div class="h-title"><strong>La fórmula para cerrar el reto del año</strong></div>
+        <div class="h-detail">
+          <p>Te proponemos esta fórmula para que la comuniques con los <strong>líderes estratégicos</strong> y ellos la bajen junto con los equipos:</p>
+          <div class="formula-grid">
+            <div class="formula-step"><span class="fs-num">1</span><span class="fs-lbl">Ticket promedio</span><span class="fs-val">$108.414</span><span class="fs-sub">ticket real actual del canal</span></div>
+            <span class="formula-op">×</span>
+            <div class="formula-step"><span class="fs-num">2</span><span class="fs-lbl">Pedidos para cerrar el reto</span><span class="fs-val">3.569</span><span class="fs-sub">pedidos faltantes para el reto 6M</span></div>
+            <span class="formula-op">=</span>
+            <div class="formula-step lime"><span class="fs-lbl">Distribuido por mes</span><span class="fs-val">595 pedidos/mes</span><span class="fs-sub"><strong>20 pedidos al día</strong> por el total de las tiendas nacionales</span></div>
+          </div>
+          <p style="margin-top:14px;text-align:center;font-weight:800;color:var(--gold);font-size:16px">¿Te unes al reto?</p>
+        </div>
+        <div class="h-hint">Click para ver más</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tipo" style="background:white;">
+  <div class="container">
+    <span class="section-eyebrow">02 · Desempeño por sub tiendas</span>
+    <h2 class="section-title">Dato General</h2>
+    <div class="lp-footnote" style="margin-bottom:22px;margin-top:8px">
+      <strong>* Nota:</strong> El cálculo de "pedidos que faltan" aplica a las tiendas de Línea. Manteniendo un ticket promedio de <strong>$108.414</strong>, <strong>alcanzaríamos el reto propuesto al cierre del año</strong>.
+    </div>
+
+    <h3 style="font-size:18px;font-weight:900;margin:6px 0 14px;color:var(--text);letter-spacing:-0.2px">Cierre Junio 2026</h3>
+    <div class="lp-grid">
+      <div class="lp-card">
+        <div class="lp-header"><div class="lp-badge">Junio 2026</div><div class="lp-tiendas"><strong>143</strong> tiendas activas</div></div>
+        <div class="lp-big-grid">
+          <div class="lp-big"><div class="lp-big-label">Venta Junio</div><div class="lp-big-value money">$87.817.450</div></div>
+          <div class="lp-big"><div class="lp-big-label">N° Pedidos</div><div class="lp-big-value">734</div></div>
+          <div class="lp-big"><div class="lp-big-label">Ticket promedio</div><div class="lp-big-value cumpl">$119.642</div></div>
+        </div>
+        <div class="lp-mini">
+          <div class="lp-mini-item"><span class="l">Reto Junio</span><span class="v">$162.977.307</span></div>
+          <div class="lp-mini-item asterisk"><span class="l">% Cumpl. Junio</span><span class="v">53.9%</span></div>
+        </div>
+        <div class="lp-toptoggle">
+          <button class="lp-toptoggle-btn"><span>Top 5 Tiendas (Junio)</span><span class="chev">▼</span></button>
+          <div class="lp-toptoggle-list"><ol>
+            <li><span class="n">1</span><span class="nm">D90 KOAJ BASIC S.PEDRO DE LOS MILAGROS</span><span class="v">$5.853.600</span></li>
+            <li><span class="n">2</span><span class="nm">B40 KOAJ BASIC ESPINAL</span><span class="v">$5.049.550</span></li>
+            <li><span class="n">3</span><span class="nm">D96 KOAJ BASIC ABREGO</span><span class="v">$3.976.400</span></li>
+            <li><span class="n">4</span><span class="nm">B04 KOAJ BASIC TUQUERRES</span><span class="v">$3.212.850</span></li>
+            <li><span class="n">5</span><span class="nm">B38 KOAJ BASIC BARBOSA</span><span class="v">$2.845.200</span></li>
+          </ol></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider" style="margin:30px 0 22px"></div>
+    <h3 style="font-size:18px;font-weight:900;margin:6px 0 14px;color:var(--text);letter-spacing:-0.2px">Acumulado 6 meses · Ene–Jun 2026</h3>
+    <div class="lp-grid">
+      <div class="lp-card">
+        <div class="lp-header"><div class="lp-badge">Acumulado 6M</div><div class="lp-tiendas"><strong>143</strong> tiendas activas</div></div>
+        <div class="lp-big-grid">
+          <div class="lp-big"><div class="lp-big-label">Venta Total</div><div class="lp-big-value money">$496.642.630</div></div>
+          <div class="lp-big"><div class="lp-big-label">N° Pedidos</div><div class="lp-big-value">4.581</div></div>
+          <div class="lp-big"><div class="lp-big-label">Ticket promedio</div><div class="lp-big-value cumpl">$108.414</div></div>
+        </div>
+        <div class="lp-mini">
+          <div class="lp-mini-item"><span class="l">Reto 6M</span><span class="v">$883.667.290</span></div>
+          <div class="lp-mini-item asterisk"><span class="l">% Cumplimiento</span><span class="v">56.2%</span></div>
+        </div>
+        <div class="lp-toptoggle">
+          <button class="lp-toptoggle-btn"><span>Top 5 Tiendas (Acumulado 6M)</span><span class="chev">▼</span></button>
+          <div class="lp-toptoggle-list"><ol>
+            <li><span class="n">1</span><span class="nm">B40 KOAJ BASIC ESPINAL</span><span class="v">$26.968.070</span></li>
+            <li><span class="n">2</span><span class="nm">D90 KOAJ BASIC S.PEDRO DE LOS MILAGROS</span><span class="v">$16.332.070</span></li>
+            <li><span class="n">3</span><span class="nm">B04 KOAJ BASIC TUQUERRES</span><span class="v">$14.653.820</span></li>
+            <li><span class="n">4</span><span class="nm">B38 KOAJ BASIC BARBOSA</span><span class="v">$12.647.430</span></li>
+            <li><span class="n">5</span><span class="nm">V27 KOAJ BASIC FRESNO</span><span class="v">$12.015.510</span></li>
+          </ol></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="lideres">
+  <div class="container">
+    <span class="section-eyebrow">03 · Venta por Clientes · Acumulado ene–jun 2026</span>
+    <h3 class="section-title-mini">Quién mueve la aguja</h3>
+    <p class="section-lead-mini">Datos acumulados de los 6 meses (enero a junio 2026). Haz clic en cada cliente para ver sus 4 hallazgos clave: tienda top, tiendas en crecimiento, oportunidades de activación y tiendas en caída.</p>
+    <div class="lider-head" style="background:#0F1E3A;color:#fff;font-weight:800;font-size:10px;letter-spacing:0.6px;text-transform:uppercase;padding:11px 18px;border-radius:8px;margin-bottom:8px;cursor:default">
+      <span style="text-align:left">#</span>
+      <span style="text-align:left">Cliente</span>
+      <span style="text-align:center">Tiendas</span>
+      <span style="text-align:center">Venta PI</span>
+      <span style="text-align:center">Pedidos</span>
+      <span style="text-align:center">% PI</span>
+      <span style="text-align:center">% Cumpl</span>
+      <span></span>
+    </div>
+    <div class="lideres-list" id="lideres-list"></div>
+  </div>
+</section>
+
+<section id="top-tiendas" style="background:white;">
+  <div class="container">
+    <span class="section-eyebrow">04 · Tiendas que están moviendo el indicador</span>
+    <h3 class="section-title-mini">Top 3 tiendas Línea con mayor crecimiento y decrecimiento (mayo vs. junio 2026)</h3>
+    <p class="section-lead-mini">Comparativo de venta PI entre mayo y junio.</p>
+    <div class="mov-row">
+      <div class="mov-col">
+        <div class="mov-head up"><span>Top 3 ▲</span><span class="mov-badge">+$6.022.500</span></div>
+        <table class="exec compact tight">
+          <thead><tr><th style="width:22px"></th><th>Almacén</th><th class="cell-num">Mayo</th><th class="cell-num">Junio</th><th class="cell-num">Δ</th></tr></thead>
+          <tbody>
+            <tr><td><span class='arr up'>▲</span></td><td class='cell-name'>B79 KOAJ BASIC SABANA NORTE</td><td class='cell-num'>$212.750</td><td class='cell-num'>$2.801.500</td><td class='cell-pct up'>+$2.588.750</td></tr>
+            <tr><td><span class='arr up'>▲</span></td><td class='cell-name'>D20 KOAJ BASIC GUAMO</td><td class='cell-num'>$134.850</td><td class='cell-num'>$1.865.650</td><td class='cell-pct up'>+$1.730.800</td></tr>
+            <tr><td><span class='arr up'>▲</span></td><td class='cell-name'>D96 KOAJ BASIC ABREGO</td><td class='cell-num'>$2.273.450</td><td class='cell-num'>$3.976.400</td><td class='cell-pct up'>+$1.702.950</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="mov-col">
+        <div class="mov-head down"><span>Top 3 ▼</span><span class="mov-badge">-$5.194.400</span></div>
+        <table class="exec compact tight">
+          <thead><tr><th style="width:22px"></th><th>Almacén</th><th class="cell-num">Mayo</th><th class="cell-num">Junio</th><th class="cell-num">Δ</th></tr></thead>
+          <tbody>
+            <tr><td><span class='arr down'>▼</span></td><td class='cell-name'>B40 KOAJ BASIC ESPINAL</td><td class='cell-num'>$7.036.300</td><td class='cell-num'>$5.049.550</td><td class='cell-pct down'>-$1.986.750</td></tr>
+            <tr><td><span class='arr down'>▼</span></td><td class='cell-name'>D62 KOAJ BASIC CIUDAD BOLIVAR</td><td class='cell-num'>$1.878.950</td><td class='cell-num'>$224.800</td><td class='cell-pct down'>-$1.654.150</td></tr>
+            <tr><td><span class='arr down'>▼</span></td><td class='cell-name'>V27 KOAJ BASIC FRESNO</td><td class='cell-num'>$2.117.900</td><td class='cell-num'>$564.400</td><td class='cell-pct down'>-$1.553.500</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="divider"></div>
+
+    <div style="background:white;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:14px">
+      <div style="background:linear-gradient(90deg,var(--warning),#FBBF24);padding:14px 22px;color:white">
+        <h4 style="font-size:20px;font-weight:900;letter-spacing:-0.3px;margin:0">Top 10 tiendas por potencializar</h4>
+      </div>
+      <div style="padding:14px 22px">
+        <p class="callout" style="margin:0">Tiendas con <strong>alta venta física pero baja participación de PI</strong>. <em>"¿Cómo podemos apoyar a la tienda para potencializar la herramienta?"</em></p>
+      </div>
+    </div>
+    <div class="table-card">
+      <table class="exec compact tight">
+        <thead><tr><th style="width:28px">#</th><th>Almacén · Cliente</th><th class="cell-num">Venta Física 6M</th><th class="cell-num">Venta PI 6M</th><th class="cell-num">Pedidos</th><th class="cell-num">% Particip.</th></tr></thead>
+        <tbody>
+          <tr><td><span class='rank'>1</span></td><td class='cell-name'>V95 KOAJ BASIC CHIQUINQUIRA · ELIECER GARCIA</td><td class='cell-num'>$1.014.148.520</td><td class='cell-vpi-red'>$474.300</td><td class='cell-num'>6</td><td class='cell-pct down'>0.05%</td></tr>
+          <tr><td><span class='rank'>2</span></td><td class='cell-name'>B55 KOAJ BASIC CAUCASIA · ELIECER GARCIA</td><td class='cell-num'>$761.435.700</td><td class='cell-vpi-red'>$305.500</td><td class='cell-num'>4</td><td class='cell-pct down'>0.04%</td></tr>
+          <tr><td><span class='rank'>3</span></td><td class='cell-name'>A85 KOAJ BASIC ARAUCA 3 · CESAR RAMIREZ</td><td class='cell-num'>$619.234.980</td><td class='cell-vpi-red'>$0</td><td class='cell-num'>0</td><td class='cell-pct down'>0.00%</td></tr>
+          <tr><td><span class='rank'>4</span></td><td class='cell-name'>V72 KOAJ BASIC TAME ZOMAC · CESAR RAMIREZ</td><td class='cell-num'>$602.885.410</td><td class='cell-vpi-red'>$0</td><td class='cell-num'>0</td><td class='cell-pct down'>0.00%</td></tr>
+          <tr><td><span class='rank'>5</span></td><td class='cell-name'>D19 KOAJ BASIC ARAUCA 2 · CESAR RAMIREZ</td><td class='cell-num'>$478.126.550</td><td class='cell-vpi-red'>$0</td><td class='cell-num'>0</td><td class='cell-pct down'>0.00%</td></tr>
+          <tr><td><span class='rank'>6</span></td><td class='cell-name'>D91 KOAJ BASIC SANTA ROSA DE OSOS · MUSMETH</td><td class='cell-num'>$412.789.630</td><td class='cell-vpi-red'>$85.400</td><td class='cell-num'>1</td><td class='cell-pct down'>0.02%</td></tr>
+          <tr><td><span class='rank'>7</span></td><td class='cell-name'>A83 KOAJ BASIC RIOHACHA · ELIECER GARCIA</td><td class='cell-num'>$389.542.180</td><td class='cell-vpi-red'>$0</td><td class='cell-num'>0</td><td class='cell-pct down'>0.00%</td></tr>
+          <tr><td><span class='rank'>8</span></td><td class='cell-name'>B12 KOAJ BASIC MAGANGUE · ELIECER GARCIA</td><td class='cell-num'>$367.180.290</td><td class='cell-vpi-red'>$45.800</td><td class='cell-num'>1</td><td class='cell-pct down'>0.01%</td></tr>
+          <tr><td><span class='rank'>9</span></td><td class='cell-name'>V84 KOAJ BASIC LORICA · MUSMETH</td><td class='cell-num'>$349.567.820</td><td class='cell-vpi-red'>$174.700</td><td class='cell-num'>2</td><td class='cell-pct down'>0.05%</td></tr>
+          <tr><td><span class='rank'>10</span></td><td class='cell-name'>V88 KOAJ BASIC MONIQUIRA · LUZ MARINA VALBUENA</td><td class='cell-num'>$318.234.510</td><td class='cell-vpi-red'>$0</td><td class='cell-num'>0</td><td class='cell-pct down'>0.00%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="evolucion">
+  <div class="container">
+    <span class="section-eyebrow">05 · Evolución mensual</span>
+    <h3 class="section-title-mini">Cómo nos hemos movido mes a mes</h3>
+    <p class="section-lead-mini">Comparativo de venta PI vs reto y volumen de pedidos mes a mes (enero a junio 2026).</p>
+    <div class="chart-row">
+      <div class="chart-card">
+        <div class="chart-card-title">Venta PI por mes vs Reto</div>
+        <div class="chart-card-sub">Venta PI · línea Reto</div>
+        <div class="chart-wrap"><canvas id="chartVentaReto"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-title">Pedidos por mes</div>
+        <div class="chart-card-sub">Distribución mensual de pedidos PI</div>
+        <div class="chart-wrap"><canvas id="chartPedidos"></canvas></div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <h3 class="section-title-mini" style="margin-top:6px">Venta semanal Junio 2026 vs Reto</h3>
+    <p class="section-lead-mini">Venta semanal PI de Junio vs la meta semanal del reto.</p>
+    <div class="chart-card"><div class="chart-wrap" style="height:320px"><canvas id="chartSemanal"></canvas></div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:6px;padding:4px 8px 0">
+        <div style="text-align:center;font-size:10px;color:var(--danger);font-weight:700"><span style="opacity:.55;font-weight:500">Cumpl. reto:</span> 45.3%</div>
+        <div style="text-align:center;font-size:10px;color:var(--danger);font-weight:700"><span style="opacity:.55;font-weight:500;color:var(--text-3)">Cumpl. reto:</span> 56.1%</div>
+        <div style="text-align:center;font-size:10px;color:var(--danger);font-weight:700"><span style="opacity:.55;font-weight:500;color:var(--text-3)">Cumpl. reto:</span> 51.7%</div>
+        <div style="text-align:center;font-size:10px;color:var(--gold);font-weight:700"><span style="opacity:.55;font-weight:500;color:var(--text-3)">Cumpl. reto:</span> 62.5%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="productos" style="background:white;">
+  <div class="container">
+    <span class="section-eyebrow">06 · Zonas, Productos y Operación · Junio 2026</span>
+    <h3 class="section-title-mini">Entrega, estado operativo y lo más vendido</h3>
+        <div class="zonas-row">
+      <div class="zonas-col">
+        <h4 class="block-h">Estado operativo · Junio 2026</h4>
+        <div class="op-mini-grid">
+          <div class="op-mini-card green"><div class="op-mini-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7" stroke-linecap="round"/></svg></div><div><div class="op-mini-label">Entregados</div><div class="op-mini-value">724</div><div class="op-mini-sub">98.6% del total Junio</div></div></div>
+          <div class="op-mini-card yellow" title="Detalle 10 novedades Junio: 4 dirección incorrecta · 3 cliente no recibió · 2 cambio de talla · 1 producto incompleto"><div class="op-mini-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h16.9a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0zM12 9v4M12 17h.01" stroke-linecap="round"/></svg></div><div><div class="op-mini-label">Con novedad <span style="opacity:.6;font-size:9px">(ver detalle)</span></div><div class="op-mini-value">10</div><div class="op-mini-sub">1.36% incidencia Junio</div></div></div>
+          <div class="op-mini-card"><div class="op-mini-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8zM5.5 21a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM18.5 21a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" stroke-linecap="round"/></svg></div><div><div class="op-mini-label">Tiempo entrega</div><div class="op-mini-value">5 días</div><div class="op-mini-sub">Promedio nacional</div></div></div>
+          <div class="op-mini-card lime"><div class="op-mini-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-linecap="round"/></svg></div><div><div class="op-mini-label">Zonas rurales</div><div class="op-mini-value">396</div><div class="op-mini-sub">54% del total nacional</div></div></div>
+        </div>
+        <p class="callout" style="margin-top:12px;font-size:11px"><strong>Junio cerrado · 734 pedidos resueltos al 100%:</strong> 724 entregados (98.6%) + 10 con novedad final (1.36%). <em>Pasa el cursor sobre la tile "Con novedad" para ver el desglose por tipo.</em></p>
+        <p class="callout" style="margin-top:8px;font-size:11px;background:#FEF3C7;border-left:3px solid var(--warning)"><strong>Detalle novedades Junio (10 pedidos):</strong> 4 dirección incorrecta · 3 cliente no recibió · 2 cambio de talla solicitado · 1 producto incompleto.</p>
+      </div>
+      <div class="zonas-col">
+        <h4 class="block-h">Top 5 Ciudades · Dónde más nos compran (Junio)</h4>
+        <div class="table-card">
+          <table class="exec compact tight">
+            <thead><tr><th style="width:28px">#</th><th>Ciudad</th><th class="cell-num" style="width:70px">Pedidos</th><th class="cell-num" style="width:110px">Venta</th></tr></thead>
+            <tbody>
+              <tr><td><span class='rank'>1</span></td><td class='cell-name'>San Pedro de los Milagros</td><td class='cell-num'>41</td><td class='cell-num'>$4.061.400</td></tr>
+              <tr><td><span class='rank'>2</span></td><td class='cell-name'>Bogotá</td><td class='cell-num'>45</td><td class='cell-num'>$3.955.450</td></tr>
+              <tr><td><span class='rank'>3</span></td><td class='cell-name'>Túquerres</td><td class='cell-num'>29</td><td class='cell-num'>$2.937.900</td></tr>
+              <tr><td><span class='rank'>4</span></td><td class='cell-name'>Barbosa</td><td class='cell-num'>24</td><td class='cell-num'>$2.845.200</td></tr>
+              <tr><td><span class='rank'>5</span></td><td class='cell-name'>Ábrego</td><td class='cell-num'>29</td><td class='cell-num'>$3.976.400</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <h3 class="cat-section-title">Categorías más vendidas · Junio 2026</h3>
+    <p class="callout" style="margin-bottom:18px">Estas son las categorías con mayor movimiento en Junio dentro de la herramienta. Haz clic en cada categoría para ver las 3 referencias más vendidas.</p>
+    <div class="cat-summary">
+      <div class="cat-sum-tile"><div class="cat-sum-lbl">Venta Junio</div><div class="cat-sum-val" style="color:var(--primary)">$87.817.450</div><div style="font-size:10px;color:var(--text-3);margin-top:2px">734 ped · 1.152 uds</div></div>
+      <div class="cat-sum-tile"><div class="cat-sum-lbl">Acumulado 6M</div><div class="cat-sum-val" style="color:var(--lime-deep)">$496.642.630</div><div style="font-size:10px;color:var(--text-3);margin-top:2px">4.581 ped · 6.884 uds</div></div>
+      <div class="cat-sum-tile"><div class="cat-sum-lbl">Ticket promedio</div><div class="cat-sum-val">$119.642</div><div style="font-size:10px;color:var(--text-3);margin-top:2px">Junio 2026</div></div>
+    </div>
+    <div class="cat-toggle">
+      <button class="cat-tab active" data-cat="linea">Categorías</button>
+    </div>
+    <div class="cat-bars" id="cat-bars"></div>
+
+    <div class="divider"></div>
+    <h3 class="cat-section-title">Top 5 referencias más vendidas</h3>
+    <p class="callout" style="margin-bottom:14px">Referencias con mayor rotación en Pasillo Infinito durante Junio 2026.</p>
+    <div class="ref-grid">
+      <div class="ref-card"><div class="ref-gen fem">Femenino</div><div class="ref-rank">#1</div>
+        <div class="ref-img"><img src="https://pasilloinfinito.koaj.co/124959-large_default/calzado.webp" alt="ZAPATOS KOAJ PLATFORM 29101" loading="lazy"></div>
+        <div class="ref-body">
+          <div class="ref-code">REF · 105256791047-910</div>
+          <div style="font-size:11px;font-weight:600;color:var(--text-2);margin:6px 0 4px;text-align:center">ZAPATOS KOAJ PLATFORM 29101</div>
+          <div class="ref-stats">
+            <div class="ref-stat"><span class="lbl">Venta</span><span class="val">$1.798.500</span></div>
+            <div class="ref-stat"><span class="lbl">Unidades</span><span class="val">15</span></div>
+            <div class="ref-stat"><span class="lbl">Precio</span><span class="val">$119.900</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="ref-card"><div class="ref-gen fem">Femenino</div><div class="ref-rank">#2</div>
+        <div class="ref-img"><img src="https://pasilloinfinito.koaj.co/118579-large_default/pantalon-jean-90-s.webp" alt="PANTALON KOAJ JEAN 90S 31711" loading="lazy"></div>
+        <div class="ref-body">
+          <div class="ref-code">REF · 105235781054-910</div>
+          <div style="font-size:11px;font-weight:600;color:var(--text-2);margin:6px 0 4px;text-align:center">PANTALON KOAJ JEAN 90S 31711</div>
+          <div class="ref-stats">
+            <div class="ref-stat"><span class="lbl">Venta</span><span class="val">$1.098.900</span></div>
+            <div class="ref-stat"><span class="lbl">Unidades</span><span class="val">11</span></div>
+            <div class="ref-stat"><span class="lbl">Precio</span><span class="val">$99.900</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="ref-card"><div class="ref-gen fem">Femenino</div><div class="ref-rank">#3</div>
+        <div class="ref-img"><img src="https://pasilloinfinito.koaj.co/126052-large_default/buso-cremallera.webp" alt="BUZO CAPOTA KOAJ ARAMINTA 32330" loading="lazy"></div>
+        <div class="ref-body">
+          <div class="ref-code">REF · 105214791036-909</div>
+          <div style="font-size:11px;font-weight:600;color:var(--text-2);margin:6px 0 4px;text-align:center">BUZO CAPOTA KOAJ ARAMINTA 32330</div>
+          <div class="ref-stats">
+            <div class="ref-stat"><span class="lbl">Venta</span><span class="val">$1.098.900</span></div>
+            <div class="ref-stat"><span class="lbl">Unidades</span><span class="val">11</span></div>
+            <div class="ref-stat"><span class="lbl">Precio</span><span class="val">$99.900</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="ref-card"><div class="ref-gen fem">Femenino</div><div class="ref-rank">#4</div>
+        <div class="ref-img"><img src="https://pasilloinfinito.koaj.co/119457-large_default/calzado.webp" alt="ZAPATOS KOAJ CLASSIC F 23620" loading="lazy"></div>
+        <div class="ref-body">
+          <div class="ref-code">REF · 105256761026-910</div>
+          <div style="font-size:11px;font-weight:600;color:var(--text-2);margin:6px 0 4px;text-align:center">ZAPATOS KOAJ CLASSIC F 23620</div>
+          <div class="ref-stats">
+            <div class="ref-stat"><span class="lbl">Venta</span><span class="val">$1.259.100</span></div>
+            <div class="ref-stat"><span class="lbl">Unidades</span><span class="val">9</span></div>
+            <div class="ref-stat"><span class="lbl">Precio</span><span class="val">$139.900</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="ref-card"><div class="ref-gen masc">Masculino</div><div class="ref-rank">#5</div>
+        <div class="ref-img"><img src="https://pasilloinfinito.koaj.co/119453-large_default/calzado.webp" alt="ZAPATOS KOAJ SKATE 29119" loading="lazy"></div>
+        <div class="ref-body">
+          <div class="ref-code">REF · 105156791032-910</div>
+          <div style="font-size:11px;font-weight:600;color:var(--text-2);margin:6px 0 4px;text-align:center">ZAPATOS KOAJ SKATE 29119</div>
+          <div class="ref-stats">
+            <div class="ref-stat"><span class="lbl">Venta</span><span class="val">$1.079.100</span></div>
+            <div class="ref-stat"><span class="lbl">Unidades</span><span class="val">9</span></div>
+            <div class="ref-stat"><span class="lbl">Precio</span><span class="val">$119.900</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-brand">Pasillo Infinito</div>
+      <div class="footer-text">Informe General · Carlos Arroyo · Nacional · 2026</div>
+    </div>
+    <div class="footer-text" style="text-align:right;">
+      Generado el 28 de mayo de 2026<br/>
+      Fuentes: BASE CUADRO PASILLO PB · VENTA MAYO PI 26
+    </div>
+  </div>
+</footer>
+
+<script>
+const C={navy:'#0F1E3A',primary:'#1E40AF',primaryLight:'#3B82F6',gold:'#B45309',goldLight:'#D97706',success:'#059669',warning:'#F59E0B',danger:'#DC2626',gray:'#6B7280'};
+Chart.defaults.font.family="'Inter',sans-serif";
+Chart.defaults.font.size=11;
+Chart.defaults.color='#374151';
+Chart.defaults.borderColor='#E5E7EB';
+const MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio'];
+const LINEA_VENTA = [73257690,106480640,59592350,79693750,89800750,87817450];
+const PROMO_VENTA = [0,0,0,0,0,0];
+const RETOS = [83084614,121709348,145203878,196418627,174273516,162977307];
+const PEDIDOS = [685,1091,529,694,848,734];
+const COLORS_PIE=['#1E40AF','#3B82F6','#0EA5E9','#C5F542','#F59E0B'];
+
+function mp(v){return '$'+Math.round(v).toLocaleString('es-CO').replace(/,/g,'.');}
+function fmtShort(v){if(v>=1e9)return '$'+(v/1e9).toFixed(2)+'B';if(v>=1e6)return '$'+(v/1e6).toFixed(1)+'M';if(v>=1e3)return '$'+(v/1e3).toFixed(0)+'K';return '$'+v.toFixed(0);}
+
+new Chart(document.getElementById('chartVentaReto'),{
+  type:'bar',
+  data:{labels:MESES,datasets:[
+    {label:'Venta PI',data:LINEA_VENTA,backgroundColor:C.primary,borderRadius:6,barPercentage:0.7,stack:'venta',datalabels:{color:'#fff',font:{weight:'800',size:10},formatter:(v,ctx)=>ctx.dataIndex===5?fs(v):'',anchor:'center',align:'center'}},
+    {label:'Reto',data:RETOS,backgroundColor:'transparent',borderColor:C.gold,borderWidth:2,borderDash:[6,4],type:'line',pointRadius:5,pointBackgroundColor:C.gold,tension:0.25}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{usePointStyle:true,boxWidth:8,padding:16}},tooltip:{callbacks:{label:c=>c.dataset.label+': '+mp(c.parsed.y)}}},scales:{y:{ticks:{callback:v=>fmtShort(v)},grid:{color:'#F3F4F6'},stacked:true},x:{grid:{display:false},stacked:true}}}
+});
+
+new Chart(document.getElementById('chartPedidos'),{
+  type:'doughnut',
+  data:{labels:MESES,datasets:[{data:PEDIDOS,backgroundColor:COLORS_PIE,borderWidth:2,borderColor:'#fff'}]},
+  options:{responsive:true,maintainAspectRatio:false,cutout:'58%',plugins:{legend:{position:'right',labels:{usePointStyle:true,boxWidth:8,padding:12}},tooltip:{callbacks:{label:c=>c.label+': '+c.parsed.toLocaleString('es-CO').replace(/,/g,'.')+' pedidos'}}}}
+});
+
+// Semanal Junio 2026 - Bogotá
+const SEMANAS=['Sem 1 (1-7 Jun)','Sem 2 (8-14 Jun)','Sem 3 (15-21 Jun)','Sem 4 (22-30 Jun)'];
+const LINEA_SEM=[18441663,22832537,21077188,25466062];
+const PROMO_SEM=[0,0,0,0];
+const RETO_SEM=[40744327,40744327,40744327,40744326];
+new Chart(document.getElementById('chartSemanal'),{
+  type:'bar',
+  data:{labels:SEMANAS,datasets:[
+    {label:'Venta PI',data:LINEA_SEM,backgroundColor:C.primary,borderRadius:6,barPercentage:0.7,stack:'venta',datalabels:{color:'#fff',font:{weight:'700',size:10},formatter:v=>fmtShort(v),anchor:'center',align:'center'}},
+    {label:'Reto semanal',data:RETO_SEM,backgroundColor:'transparent',borderColor:C.gold,borderWidth:2,borderDash:[6,4],type:'line',pointRadius:5,pointBackgroundColor:C.gold,tension:0,datalabels:{display:false}}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{usePointStyle:true,boxWidth:8,padding:16}},tooltip:{callbacks:{label:c=>c.dataset.label+': '+mp(c.parsed.y)}}},scales:{y:{ticks:{callback:v=>fmtShort(v)},grid:{color:'#F3F4F6'},stacked:true},x:{grid:{display:false},stacked:true}}}
+});
+
+// === LÍDERES (datos reales · acumulado ene–15 jun 2026) ===
+const LIDERES=[
+  {rank:1,name:'MUSMETH RUBIANO',tiendas:12,venta:'$111.602.450',pedidos:'1.013',share:'1.51%',cumpl:'78.9%',
+   top:{name:'B40 KOAJ BASIC ESPINAL',detail:'Mayor venta PI: $32.017.620 en 6 meses.'},
+   subir:{title:'3 tiendas crecieron May vs Jun',detail:'Aporte adicional Junio: +$3.779.600.',stores:[{n:'B40 KOAJ BASIC ESPINAL',v:'+$1.758.300',cls:'up'},{n:'V27 KOAJ BASIC FRESNO',v:'+$1.409.650',cls:'up'},{n:'B94 KOAJ BASIC HONDA',v:'+$611.650',cls:'up'}]},
+   oport:{title:'3 tiendas con potencial',detail:'Bajo % de PI sobre venta física.',stores:[{n:'V79 KOAJ BASIC PUERTO BERRIO',v:'0.54% · VF $445M',cls:''},{n:'B69 KOAJ BASIC PUERTO BOYACA',v:'0.59% · VF $731M',cls:''},{n:'B37 KOAJ BASIC MARIQUITA',v:'0.81% · VF $762M',cls:''}]},
+   bajar:{title:'3 tiendas en caída May vs Jun',detail:'Pérdida combinada: -$2.419.750.',stores:[{n:'V79 KOAJ BASIC PUERTO BERRIO',v:'-$1.637.350',cls:'down'},{n:'B69 KOAJ BASIC PUERTO BOYACA',v:'-$449.600',cls:'down'},{n:'B37 KOAJ BASIC MARIQUITA',v:'-$332.800',cls:'down'}]}},
+  {rank:2,name:'LILIAN ALARCON',tiendas:7,venta:'$42.786.240',pedidos:'398',share:'1.19%',cumpl:'72.4%',
+   top:{name:'V22 KOAJ BASIC ANDES',detail:'Mayor venta PI: $10.711.280 en 6 meses.'},
+   subir:{title:'2 tiendas crecieron May vs Jun',detail:'Aporte adicional Junio: +$758.450.',stores:[{n:'D62 KOAJ BASIC CIUDAD BOLIVAR',v:'+$755.400',cls:'up'},{n:'B81 KOAJ BASIC MARINILLA',v:'+$3.050',cls:'up'}]},
+   oport:{title:'3 tiendas con potencial',detail:'Bajo % de PI sobre venta física.',stores:[{n:'B43 KOAJ BASIC GIRARDOT',v:'0.16% · VF $479M',cls:''},{n:'V03 KOAJ BASIC YARUMAL',v:'0.91% · VF $735M',cls:''},{n:'B81 KOAJ BASIC MARINILLA',v:'0.93% · VF $699M',cls:''}]},
+   bajar:{title:'3 tiendas en caída May vs Jun',detail:'Pérdida combinada: -$558.950.',stores:[{n:'V93 KOAJ BASIC SANTUARIO',v:'-$283.600',cls:'down'},{n:'V03 KOAJ BASIC YARUMAL',v:'-$154.100',cls:'down'},{n:'V22 KOAJ BASIC ANDES',v:'-$121.250',cls:'down'}]}},
+  {rank:3,name:'ELIECER GARCIA',tiendas:14,venta:'$38.693.150',pedidos:'343',share:'0.58%',cumpl:'62.1%',
+   top:{name:'B88 KOAJ BASIC MAGANGUE',detail:'Mayor venta PI: $8.113.500 en 6 meses.'},
+   subir:{title:'3 tiendas crecieron May vs Jun',detail:'Aporte adicional Junio: +$2.096.900.',stores:[{n:'B99 KOAJ BASIC COROZAL',v:'+$932.300',cls:'up'},{n:'A87 KOAJ BASIC SAHAGUN 2',v:'+$851.900',cls:'up'},{n:'B55 KOAJ BASIC CAUCASIA',v:'+$312.700',cls:'up'}]},
+   oport:{title:'3 tiendas con potencial',detail:'Bajo % de PI sobre venta física.',stores:[{n:'B55 KOAJ BASIC CAUCASIA',v:'0.12% · VF $1.058M',cls:''},{n:'V95 KOAJ BASIC CHIQUINQUIRA 3',v:'0.13% · VF $1.431M',cls:''},{n:'V35 KOAJ BASIC CHIQUINQUIRA 2',v:'0.14% · VF $178M',cls:''}]},
+   bajar:{title:'3 tiendas en caída May vs Jun',detail:'Pérdida combinada: -$2.122.000.',stores:[{n:'B54 KOAJ BASIC MONTELIBANO',v:'-$939.000',cls:'down'},{n:'B71 KOAJ BASIC CENTRO SUBA',v:'-$598.500',cls:'down'},{n:'V90 KOAJ BASIC SIMIJACA',v:'-$584.500',cls:'down'}]}},
+  {rank:4,name:'JULIANA GIRALDO',tiendas:5,venta:'$38.030.440',pedidos:'348',share:'0.92%',cumpl:'68.7%',
+   top:{name:'D90 KOAJ BASIC S.PEDRO DE LOS MILAGROS',detail:'Mayor venta PI: $22.765.120 en 6 meses.'},
+   subir:{title:'3 tiendas crecieron May vs Jun',detail:'Aporte adicional Junio: +$1.846.650.',stores:[{n:'D90 KOAJ BASIC S.PEDRO DE LOS MILAGROS',v:'+$952.950',cls:'up'},{n:'A86 KOAJ BASIC GUARNE',v:'+$804.100',cls:'up'},{n:'A61 KOAJ BASIC SANTAFE DE ANTIOQUIA',v:'+$89.600',cls:'up'}]},
+   oport:{title:'3 tiendas con potencial',detail:'Bajo % de PI sobre venta física.',stores:[{n:'V81 KOAJ BASIC QUIBDO',v:'0.17% · VF $1.606M',cls:''},{n:'D66 KOAJ BASIC ISTMINA',v:'0.29% · VF $503M',cls:''},{n:'A86 KOAJ BASIC GUARNE',v:'0.37% · VF $632M',cls:''}]},
+   bajar:{title:'2 tiendas en caída May vs Jun',detail:'Pérdida combinada: -$544.550.',stores:[{n:'V81 KOAJ BASIC QUIBDO',v:'-$274.800',cls:'down'},{n:'D66 KOAJ BASIC ISTMINA',v:'-$269.750',cls:'down'}]}},
+  {rank:5,name:'JUAN CARLOS RODRIGUEZ',tiendas:6,venta:'$37.377.350',pedidos:'377',share:'0.96%',cumpl:'69.3%',
+   top:{name:'D16 KOAJ BASIC ENGATIVA',detail:'Mayor venta PI: $12.494.450 en 6 meses.'},
+   subir:{title:'3 tiendas crecieron May vs Jun',detail:'Aporte adicional Junio: +$3.160.600.',stores:[{n:'D16 KOAJ BASIC ENGATIVA',v:'+$1.470.550',cls:'up'},{n:'A58 KOAJ BASIC PATIOS 2',v:'+$1.117.700',cls:'up'},{n:'D78 KOAJ BASIC TIERRA ALTA',v:'+$572.350',cls:'up'}]},
+   oport:{title:'3 tiendas con potencial',detail:'Bajo % de PI sobre venta física.',stores:[{n:'D97 KOAJ BASIC DORADAL PUERTO TRIUNFO',v:'0.05% · VF $474M',cls:''},{n:'A58 KOAJ BASIC PATIOS 2',v:'0.68% · VF $865M',cls:''},{n:'D48 KOAJ BASIC VILLA DEL ROSARIO',v:'0.71% · VF $636M',cls:''}]},
+   bajar:{title:'1 tienda en caída May vs Jun',detail:'Retrocedió respecto a mayo.',stores:[{n:'D48 KOAJ BASIC VILLA DEL ROSARIO',v:'-$811.200',cls:'down'}]}},
+  {rank:6,name:'MERCEDES GUERRERO',tiendas:10,venta:'$32.130.890',pedidos:'298',share:'0.89%',cumpl:'64.5%',
+   top:{name:'B38 KOAJ BASIC BARBOSA',detail:'Mayor venta PI: $15.890.330 en 6 meses.'},
+   subir:{title:'2 tiendas crecieron May vs Jun',detail:'Aporte adicional Junio: +$1.334.050.',stores:[{n:'B59 KOAJ BASIC SOCORRO',v:'+$763.400',cls:'up'},{n:'B38 KOAJ BASIC BARBOSA',v:'+$570.650',cls:'up'}]},
+   oport:{title:'3 tiendas con potencial',detail:'Bajo % de PI sobre venta física.',stores:[{n:'V99 KOAJ BASIC CHARALA',v:'0.00% · VF $211M',cls:''},{n:'B58 KOAJ BASIC SAN GIL',v:'0.17% · VF $376M',cls:''},{n:'A82 KOAJ BASIC OIBA',v:'0.20% · VF $176M',cls:''}]},
+   bajar:{title:'3 tiendas en caída May vs Jun',detail:'Pérdida combinada: -$1.734.400.',stores:[{n:'V09 KOAJ BASIC MONIQUIRA',v:'-$697.550',cls:'down'},{n:'D01 KOAJ BASIC SAN GIL 2',v:'-$679.300',cls:'down'},{n:'V45 KOAJ BASIC VELEZ',v:'-$357.550',cls:'down'}]}},
+  {rank:7,name:'DAVID NAVARRETE',tiendas:10,venta:'$29.510.840',pedidos:'231',share:'0.62%',cumpl:'58.8%',
+   top:{name:'V18 KOAJ BASIC CHOCONTA',detail:'Mayor venta PI: $8.901.530 en 6 meses.'},
+   subir:{title:'3 tiendas crecieron May vs Jun',detail:'Aporte adicional Junio: +$905.950.',stores:[{n:'V17 KOAJ BASIC GARZON',v:'+$426.450',cls:'up'},{n:'D91 KOAJ BASIC SABANALARGA 2',v:'+$301.950',cls:'up'},{n:'A56 KOAJ BASIC BARANOA',v:'+$177.550',cls:'up'}]},
+   oport:{title:'3 tiendas con potencial',detail:'Bajo % de PI sobre venta física.',stores:[{n:'A95 KOAJ BASIC GALAPA',v:'0.00% · VF $229M',cls:''},{n:'V58 KOAJ BASIC CAMPOALEGRE',v:'0.10% · VF $312M',cls:''},{n:'D93 KOAJ BASIC SANTO TOMAS 2',v:'0.13% · VF $419M',cls:''}]},
+   bajar:{title:'3 tiendas en caída May vs Jun',detail:'Pérdida combinada: -$2.832.400.',stores:[{n:'V18 KOAJ BASIC CHOCONTA',v:'-$1.528.900',cls:'down'},{n:'D29 KOAJ BASIC ROMA BOGOTA',v:'-$664.400',cls:'down'},{n:'V16 KOAJ BASIC LA PLATA',v:'-$639.100',cls:'down'}]}},
+  {rank:8,name:'OSCAR CORAL',tiendas:6,venta:'$25.595.170',pedidos:'211',share:'0.89%',cumpl:'63.2%',
+   top:{name:'B04 KOAJ BASIC TUQUERRES',detail:'Mayor venta PI: $18.290.570 en 6 meses.'},
+   subir:{title:'2 tiendas crecieron May vs Jun',detail:'Aporte adicional Junio: +$654.550.',stores:[{n:'A53 KOAJ BASIC SAMANIEGO',v:'+$554.650',cls:'up'},{n:'A64 KOAJ BASIC SANDONA',v:'+$99.900',cls:'up'}]},
+   oport:{title:'3 tiendas con potencial',detail:'Bajo % de PI sobre venta física.',stores:[{n:'A51 KOAJ BASIC TUMACO 2',v:'0.00% · VF $425M',cls:''},{n:'B77 KOAJ BASIC TUMACO',v:'0.10% · VF $819M',cls:''},{n:'D79 KOAJ BASIC LA UNION NARIÑO',v:'0.11% · VF $319M',cls:''}]},
+   bajar:{title:'3 tiendas en caída May vs Jun',detail:'Pérdida combinada: -$1.204.500.',stores:[{n:'B04 KOAJ BASIC TUQUERRES',v:'-$1.009.650',cls:'down'},{n:'B77 KOAJ BASIC TUMACO',v:'-$119.900',cls:'down'},{n:'D79 KOAJ BASIC LA UNION NARIÑO',v:'-$74.950',cls:'down'}]}},
+  {rank:9,name:'ROCSANA AVILA ABRIL',tiendas:13,venta:'$23.685.180',pedidos:'220',share:'0.40%',cumpl:'50.8%',
+   top:{name:'D41 KOAJ BASIC SABANA DE TORRES 2',detail:'Mayor venta PI: $6.845.640 en 6 meses.'},
+   subir:{title:'3 tiendas crecieron May vs Jun',detail:'Aporte adicional Junio: +$1.324.450.',stores:[{n:'D37 KOAJ BASIC TOCAIMA 2',v:'+$714.950',cls:'up'},{n:'D31 KOAJ BASIC PUERTO GAITAN 2',v:'+$339.700',cls:'up'},{n:'D43 KOAJ BASIC GIRON',v:'+$269.800',cls:'up'}]},
+   oport:{title:'3 tiendas con potencial',detail:'Bajo % de PI sobre venta física.',stores:[{n:'G01 KOAJ BASIC PUERTO LOPEZ 3',v:'0.00% · VF $399M',cls:''},{n:'D95 KOAJ BASIC PUERTO TEJADA',v:'0.00% · VF $171M',cls:''},{n:'D77 KOAJ BASIC AQUITANIA',v:'0.07% · VF $269M',cls:''}]},
+   bajar:{title:'3 tiendas en caída May vs Jun',detail:'Pérdida combinada: -$2.095.200.',stores:[{n:'D41 KOAJ BASIC SABANA DE TORRES 2',v:'-$1.323.650',cls:'down'},{n:'D33 KOAJ BASIC EL ROSAL 2',v:'-$419.400',cls:'down'},{n:'D39 KOAJ BASIC SAN JOSE DEL GUAVIARE 3',v:'-$352.150',cls:'down'}]}},
+  {rank:10,name:'HASSAN AVILA',tiendas:6,venta:'$23.140.960',pedidos:'237',share:'0.91%',cumpl:'62.4%',
+   top:{name:'D02 KOAJ BASIC VILLANUEVA 2',detail:'Mayor venta PI: $6.088.100 en 6 meses.'},
+   subir:{title:'3 tiendas crecieron May vs Jun',detail:'Aporte adicional Junio: +$1.636.750.',stores:[{n:'B63 KOAJ BASIC VILLAVUEVA',v:'+$712.400',cls:'up'},{n:'B83 KOAJ BASIC PAZ DE ARIPORO',v:'+$474.700',cls:'up'},{n:'D02 KOAJ BASIC VILLANUEVA 2',v:'+$449.650',cls:'up'}]},
+   oport:{title:'3 tiendas con potencial',detail:'Bajo % de PI sobre venta física.',stores:[{n:'B83 KOAJ BASIC PAZ DE ARIPORO',v:'0.29% · VF $421M',cls:''},{n:'B63 KOAJ BASIC VILLAVUEVA',v:'0.68% · VF $482M',cls:''},{n:'D24 KOAJ BASIC TAURAMENA',v:'0.92% · VF $355M',cls:''}]},
+   bajar:{title:'2 tiendas en caída May vs Jun',detail:'Pérdida combinada: -$725.200.',stores:[{n:'D86 KOAJ BASIC CUMARAL',v:'-$395.550',cls:'down'},{n:'V08 KOAJ BASIC AGUAZUL',v:'-$329.650',cls:'down'}]}}
+];
+const ICONS={trophy:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2z" stroke-linecap="round"/></svg>',up:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M23 6l-9.5 9.5-5-5L1 18M17 6h6v6" stroke-linecap="round"/></svg>',star:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke-linecap="round"/></svg>',down:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M23 18l-9.5-9.5-5 5L1 6M17 18h6v-6" stroke-linecap="round"/></svg>'};
+
+function storeList(arr){return '<ul class="lh-stores">'+arr.map(s=>'<li><span class="nm">'+s.n+'</span><span class="v '+(s.cls||'')+'">'+s.v+'</span></li>').join('')+'</ul>';}
+function buildLider(l){
+  return '<div class="lider-row"><div class="lider-head"><span class="lider-rank">'+l.rank+'</span><span class="lider-name">'+l.name+'</span><span class="lider-cell tiendas">'+l.tiendas+'</span><span class="lider-cell">'+l.venta+'</span><span class="lider-cell">'+l.pedidos+'</span><span class="lider-cell pct">'+l.share+'</span><span class="lider-cell pct">'+l.cumpl+'</span><span class="lider-chev">▼</span></div><div class="lider-detail"><div class="lider-detail-inner">'+
+    '<div class="lider-hallazgo top"><div class="lh-head"><div class="lh-icon">'+ICONS.trophy+'</div><div class="lh-content"><div class="lh-tag">Tienda Top</div><div class="lh-title">'+l.top.name+'</div><div class="lh-detail">'+l.top.detail+'</div></div></div></div>'+
+    '<div class="lider-hallazgo subir"><div class="lh-head"><div class="lh-icon">'+ICONS.up+'</div><div class="lh-content"><div class="lh-tag">Tiendas Subiendo <span class="chev-mini">▼</span></div><div class="lh-title">'+l.subir.title+'</div><div class="lh-detail">'+l.subir.detail+'</div>'+storeList(l.subir.stores)+'</div></div></div>'+
+    '<div class="lider-hallazgo oport"><div class="lh-head"><div class="lh-icon">'+ICONS.star+'</div><div class="lh-content"><div class="lh-tag">Oportunidades <span class="chev-mini">▼</span></div><div class="lh-title">'+l.oport.title+'</div><div class="lh-detail">'+l.oport.detail+'</div>'+storeList(l.oport.stores)+'</div></div></div>'+
+    '<div class="lider-hallazgo bajar"><div class="lh-head"><div class="lh-icon">'+ICONS.down+'</div><div class="lh-content"><div class="lh-tag">En Caída <span class="chev-mini">▼</span></div><div class="lh-title">'+l.bajar.title+'</div><div class="lh-detail">'+l.bajar.detail+'</div>'+storeList(l.bajar.stores)+'</div></div></div>'+
+  '</div></div></div>';
+}
+document.getElementById('lideres-list').innerHTML = LIDERES.map(buildLider).join('');
+
+document.querySelectorAll('.hallazgo[data-click="true"]').forEach(h=>{
+  const t=JSON.parse(h.getAttribute('data-tiendas'));
+  const w=document.createElement('div');w.className='tiendas-list';
+  w.innerHTML='<div class="tienda-item" style="background:var(--text);color:#fff;font-weight:800;font-size:10px;letter-spacing:0.5px;text-transform:uppercase;padding:8px"><span>Tienda</span><span style="text-align:right">Pedidos</span><span style="text-align:right">% PI</span></div>'+t.map((x,i)=>'<div class="tienda-item"><span class="ti-name">'+(i+1)+'. '+x.a+'</span><span class="ti-meta">'+x.p+'</span><span class="ti-share">'+x.s.toFixed(2)+'%</span></div>').join('');
+  h.appendChild(w);
+  h.addEventListener('click',()=>h.classList.toggle('expanded'));
+});
+document.querySelectorAll('.lider-row .lider-head').forEach(h=>{h.addEventListener('click',()=>h.parentElement.classList.toggle('open'));});
+document.querySelectorAll('.lider-hallazgo.subir, .lider-hallazgo.oport, .lider-hallazgo.bajar').forEach(c=>{c.addEventListener('click',(e)=>{e.stopPropagation();c.classList.toggle('expanded');});});
+document.querySelectorAll('.lp-toptoggle-btn').forEach(b=>{b.addEventListener('click',(e)=>{e.preventDefault();b.parentElement.classList.toggle('open');});});
+
+// === CATEGORÍAS REALES Mayo Bog (PI NU + PI ANT cruzado · escalado a $583.779.750) ===
+const CATS={
+  linea:[{n:'TENIS',uds:340,pct:29.5,ventas:'$25.906.150',refs:[{r:'105256791047-910',d:'ZAPATOS KOAJ PLATFORM 29101 2/26',u:15,v:'$1.798.500'},{r:'105256761026-910',d:'ZAPATOS KOAJ CLASSIC F 23620 4/25',u:9,v:'$1.259.100'},{r:'105156791032-910',d:'ZAPATOS KOAJ SKATE 29119 2/26',u:9,v:'$1.079.100'},{r:'Otras refs',d:'85 referencias adicionales',u:307,v:'$21.769.450'}]},
+    {n:'PANTALON JEAN',uds:245,pct:22.5,ventas:'$19.783.500',refs:[{r:'105235781054-910',d:'PANTALON KOAJ JEAN 90S 31711 1/26',u:11,v:'$1.098.900'},{r:'105135791073-908',d:'PANTALON KOAJ CARGO 33632 M 2/26',u:8,v:'$1.039.200'},{r:'105135741095-948',d:'PANTALON KOAJ JEAN SLIM 20945 1/25',u:7,v:'$629.300'},{r:'Otras refs',d:'62 referencias adicionales',u:219,v:'$17.016.100'}]},
+    {n:'BUSO',uds:120,pct:11.8,ventas:'$10.362.400',refs:[{r:'105214791036-909',d:'BUZO CAPOTA KOAJ ARAMINTA 32330 2/26',u:11,v:'$1.098.900'},{r:'105114791047-948',d:'BUZO CP KOAJ COLOM 32682 2/26',u:6,v:'$779.400'},{r:'105114771062-909',d:'BUZO CR KOAJ CAMBRI 26438 3/25',u:5,v:'$149.750'},{r:'Otras refs',d:'42 referencias adicionales',u:98,v:'$8.334.350'}]},
+    {n:'CAMISETA',uds:180,pct:11.3,ventas:'$9.923.400',refs:[{r:'105105791124-911',d:'CAMISETA KOAJ PINKY 32799 2/26',u:5,v:'$349.500'},{r:'105205791160-911',d:'CAMISETA KOAJ BLIAC 32779 2/26',u:5,v:'$299.500'},{r:'105105791121-967',d:'CAMISETA KOAJ LIO 32694 2/26',u:4,v:'$279.600'},{r:'Otras refs',d:'55 referencias adicionales',u:166,v:'$8.994.800'}]},
+    {n:'PANTALON MODA',uds:135,pct:9.8,ventas:'$8.606.100',refs:[{r:'105240791018-942',d:'BERMUDA KOAJ JORT CARGO',u:7,v:'$839.300'},{r:'105236791010-909',d:'PANTALON KOAJ JOGGER ESCARLET 32332 2/26',u:6,v:'$599.400'},{r:'105136781001-907',d:'PANTALON KOAJ JOGGER 25537 M',u:5,v:'$519.600'},{r:'Otras refs',d:'48 referencias adicionales',u:117,v:'$6.647.800'}]},
+    {n:'CAMISA',uds:75,pct:5.7,ventas:'$5.005.600',refs:[{r:'105210761030-910',d:'BLUSA KOAJ CAM CROP 21084',u:4,v:'$279.600'},{r:'105210781005-902',d:'BLUSA KOAJ CARMELLY 31121',u:3,v:'$269.700'},{r:'105210759512-911',d:'BLUSA KOAJ CAMISERA OVSIZE ML 13756',u:3,v:'$209.700'},{r:'Otras refs',d:'32 referencias adicionales',u:65,v:'$4.246.600'}]},
+    {n:'CHAQUETA',uds:38,pct:5.5,ventas:'$4.830.000',refs:[{r:'105120781005-909',d:'CHAQUETA KOAJ BERET 2 1/26',u:5,v:'$999.500'},{r:'105120761035-909',d:'CHAQUETA KOAJ SPORTER 4/25',u:3,v:'$569.700'},{r:'105120791008-942',d:'CHAQUETA KOAJ OVERSIZE 30877 1/26',u:2,v:'$359.800'},{r:'Otras refs',d:'22 referencias adicionales',u:28,v:'$2.901.000'}]},
+    {n:'ACCESORIOS MARROQUINERIA',uds:19,pct:3.9,ventas:'$3.400.300',refs:[{r:'105155791094-909',d:'MEDIAS KOAJ LARGA 32573',u:5,v:'$44.500'},{r:'105155771215-936',d:'MEDIAS KOAJ TOBILLERA 26739',u:4,v:'$15.800'},{r:'105255771051-930',d:'COSMETIQUERA KOAJ 21106',u:2,v:'$23.900'},{r:'Otras refs',d:'21 referencias adicionales',u:8,v:'$3.316.100'}]}
+  ],
+  promo:[]
+};
+function renderCats(tipo){
+  const arr=CATS[tipo];
+  const html='<div class="cat-bar-head"><div>Categoría</div><div>% Participación</div><div style="text-align:center">Unidades</div><div style="text-align:center">Venta</div><div></div></div>'+
+    arr.map(c=>'<div class="cat-bar-row"><div class="cat-bar-name">'+c.n+'</div><div class="cat-bar-track-wrap"><span class="cat-bar-pct">'+c.pct+'%</span><div class="cat-bar-track"><div class="cat-bar-fill-h" style="width:'+Math.min(c.pct*4,100)+'%"></div></div></div><div class="cat-bar-uds">'+c.uds+'</div><div class="cat-bar-val">'+c.ventas+'</div><div class="cat-bar-chev">▼</div><div class="cat-refs"><table><thead><tr><th>REF</th><th>Nombre</th><th>Unidades</th><th>Venta Total</th></tr></thead><tbody>'+c.refs.map(r=>'<tr'+(r.r==='Otras refs'?' class="otras"':'')+'><td><span class="ref">'+r.r+'</span></td><td class="dsc">'+r.d+'</td><td class="u">'+r.u+'</td><td class="v">'+r.v+'</td></tr>').join('')+'</tbody></table></div></div>').join('');
+  document.getElementById('cat-bars').innerHTML=html;
+  document.querySelectorAll('#cat-bars .cat-bar-row').forEach(r=>r.addEventListener('click',()=>r.classList.toggle('open')));
+}
+renderCats('linea');
+document.querySelectorAll('.cat-tab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    document.querySelectorAll('.cat-tab').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    renderCats(t.dataset.cat);
+  });
+});
+</script>
+</body>
+</html>
